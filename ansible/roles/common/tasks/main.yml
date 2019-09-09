@@ -1,0 +1,19 @@
+- name: Hosts are defined
+  lineinfile:
+    dest: /etc/hosts
+    regexp: "^{{ item.host_ip }}"
+    line: "{{ item.host_ip }} {{ item.host_name }}"
+  with_items: "{{ hosts }}"
+  tags: [common]
+
+- name: jq is installed
+  yum:
+    name: jq
+    state: present
+  tags: [common]
+
+- name: htop is installed
+  yum:
+    name: htop
+    state: present
+  tags: [common]
