@@ -16,3 +16,10 @@ Spin up a development environment with:
     vagrant up
     
 It provisions machine with everything.
+
+# Testing
+
+Open in your browser:
+
+    http://10.44.0.100:5601/app/kibana
+    http://10.44.0.100:9200/
