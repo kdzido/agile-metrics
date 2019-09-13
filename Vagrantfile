@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-$create_2g_swapfile = <<SCRIPT
+$create_swapfile = <<SCRIPT
 echo "Preparing 2GB swap file..."
 # Create swap space
 sudo fallocate -l 2G /swapfile
@@ -25,12 +25,14 @@ Vagrant.configure(2) do |config|
     d.vm.box = "ubuntu/xenial64"
     d.vm.hostname = "metrics"
     d.vm.network "private_network", ip: "10.44.0.100"
+    d.vm.provision :shell, :inline => $create_swapfile
     # d.vm.provision :shell, inline: "sudo apt-get install -y python2.7"
     d.vm.provision :shell, path: "scripts/bootstrap_ansible.sh"
     d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/dev.yml -c local"
     d.vm.provider "virtualbox" do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.memory = 2048
+      v.cpus = 2
     end
   end
   if Vagrant.has_plugin?("vagrant-cachier")

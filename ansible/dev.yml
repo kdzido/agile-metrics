@@ -2,11 +2,7 @@
 - hosts: localhost
   remote_user: vagrant
   serial: 1
-#  vars:
-#    - ansible_python_interpreter: "/usr/bin/python"   # workaround for libselinux-python with virtualenv
-#    - allow_world_readable_tmpfiles: true
-#    - pipelining: true
-#  become_user: yes
   roles:
     - common
     - docker
+    - docker-compose
