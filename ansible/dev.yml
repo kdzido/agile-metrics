@@ -1,9 +1,12 @@
 
 - hosts: localhost
-#  gather_facts: no
-  vars:   # workaround for libselinux-python with virtualenv
-    - ansible_python_interpreter: "/usr/bin/python"
   remote_user: vagrant
-  become_user: yes
+  serial: 1
+#  vars:
+#    - ansible_python_interpreter: "/usr/bin/python"   # workaround for libselinux-python with virtualenv
+#    - allow_world_readable_tmpfiles: true
+#    - pipelining: true
+#  become_user: yes
   roles:
     - common
+    - docker

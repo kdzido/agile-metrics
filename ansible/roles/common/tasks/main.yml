@@ -7,13 +7,13 @@
   tags: [common]
 
 - name: jq is installed
-  yum:
+  apt:
     name: jq
-    state: present
+    force: yes
   tags: [common]
 
 - name: htop is installed
-  yum:
+  apt:
     name: htop
-    state: present
+    force: yes
   tags: [common]

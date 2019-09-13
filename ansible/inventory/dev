@@ -1,1 +1,7 @@
-localhost ansible_python_interpreter=/usr/bin/python
+# localhost ansible_python_interpreter=/usr/bin/python
+
+[registry]
+10.44.0.100
+
+[docker-machine]
+10.44.0.100
