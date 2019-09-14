@@ -20,7 +20,8 @@ It provisions machine with everything.
 # Testing
 
 Start components with:
-
+     
+    vagrant ssh metrics
     ./vagrant/docker-compose-run-metrics.sh
 
 Check ELK and Mongo Express web UI your browser:
