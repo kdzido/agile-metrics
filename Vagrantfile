@@ -25,6 +25,12 @@ Vagrant.configure(2) do |config|
     d.vm.box = "ubuntu/xenial64"
     d.vm.hostname = "metrics"
     d.vm.network "private_network", ip: "10.44.0.100"
+    d.vm.network "forwarded_port", guest: 5601, host: 5601
+    d.vm.network "forwarded_port", guest: 9200, host: 9200
+    d.vm.network "forwarded_port", guest: 5044, host: 5044
+    d.vm.network "forwarded_port", guest: 8081, host: 8081
+    d.vm.network "forwarded_port", guest: 8081, host: 8081
+
     d.vm.provision :shell, :inline => $create_swapfile
     # d.vm.provision :shell, inline: "sudo apt-get install -y python2.7"
     d.vm.provision :shell, path: "scripts/bootstrap_ansible.sh"

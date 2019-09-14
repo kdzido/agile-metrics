@@ -19,7 +19,16 @@ It provisions machine with everything.
 
 # Testing
 
-Open in your browser:
+Start components with:
+
+    ./vagrant/docker-compose-run-metrics.sh
+
+Check ELK and Mongo Express web UI your browser:
+ELK:
 
     http://10.44.0.100:5601/app/kibana
     http://10.44.0.100:9200/
+    
+Mongo Express web admin UI:
+
+    http://10.44.0.100:8081/
