@@ -2,15 +2,15 @@
   become: yes
   apt: name=software-properties-common state=latest
 
-- name: Oracle Java Repository is added
+- name: ppa:openjdk-r/ppa repository is added
   become: yes
   apt_repository: repo='ppa:openjdk-r/ppa'
 
-- name: OpenJDK 11 is installed
+- name: OpenJDK 8 is installed
   become: yes
   apt: name={{item}} state=latest
   with_items:
-    - openjdk-11-jdk
+    - openjdk-8-jdk
     - ca-certificates
 
 

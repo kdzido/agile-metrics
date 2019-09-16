@@ -17,6 +17,18 @@ Spin up a development environment with:
     
 It provisions machine with everything.
 
+
+# Grails app skeleton preparation (how it was done)
+
+    vagrant ssh metrics
+    sudo apt-get install unzip zip
+    curl -s "https://get.sdkman.io" | bash
+    sdk install grails=4.0.0
+    cd /vagrant
+    grails create-app metrics --inplace
+    
+Added all created files under /vagrant/ to git index and commited
+
 # Testing
 
 Start components with:
@@ -34,3 +46,13 @@ ELK:
 Mongo Express web admin UI:
 
     http://10.44.0.100:8081/
+    
+To run the data collector application:
+
+    rm -rf /vagrant/build/ 
+    rm -rf /vagrant/.gradle/
+    
+    cd /vagrant    
+    ./grailsw run-app
+    
+    http://10.44.0.100:8090/
